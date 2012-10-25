@@ -42,6 +42,10 @@ class CRequiredValidator extends CValidator
 	 */
 	public $strict=false;
 	/**
+	 * @var boolean whether to allow a false value.
+	 */
+	public $allowFalse=false;
+	/**
 	 * Validates the attribute of the object.
 	 * If there is any error, the error message is added to the object.
 	 * @param CModel $object the object being validated
@@ -59,7 +63,7 @@ class CRequiredValidator extends CValidator
 				$this->addError($object,$attribute,$message);
 			}
 		}
-		else if($this->isEmpty($value,true))
+		else if($this->isEmpty($value,!$this->allowFalse))
 		{
 			$message=$this->message!==null?$this->message:Yii::t('yii','{attribute} cannot be blank.');
 			$this->addError($object,$attribute,$message);

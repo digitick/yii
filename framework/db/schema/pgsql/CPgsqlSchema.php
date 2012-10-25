@@ -18,7 +18,7 @@
  */
 class CPgsqlSchema extends CDbSchema
 {
-	const DEFAULT_SCHEMA='public';
+	public static $defaultSchema = 'public';
 
 	/**
 	 * @var array the abstract column types mapped to physical column types.
@@ -143,13 +143,13 @@ class CPgsqlSchema extends CDbSchema
 		}
 		else
 		{
-			$schemaName=self::DEFAULT_SCHEMA;
+			$schemaName=self::$defaultSchema;
 			$tableName=$parts[0];
 		}
 
 		$table->name=$tableName;
 		$table->schemaName=$schemaName;
-		if($schemaName===self::DEFAULT_SCHEMA)
+		if($schemaName===self::$defaultSchema)
 			$table->rawName=$this->quoteTableName($tableName);
 		else
 			$table->rawName=$this->quoteTableName($schemaName).'.'.$this->quoteTableName($tableName);
@@ -184,7 +184,7 @@ EOD;
 
 			if(stripos($column['adsrc'],'nextval')===0 && preg_match('/nextval\([^\']*\'([^\']+)\'[^\)]*\)/i',$column['adsrc'],$matches))
 			{
-				if(strpos($matches[1],'.')!==false || $table->schemaName===self::DEFAULT_SCHEMA)
+				if(strpos($matches[1],'.')!==false || $table->schemaName===self::$defaultSchema)
 					$this->_sequences[$table->rawName.'.'.$c->name]=$matches[1];
 				else
 					$this->_sequences[$table->rawName.'.'.$c->name]=$table->schemaName.'.'.$matches[1];
@@ -342,7 +342,7 @@ EOD;
 	protected function findTableNames($schema='')
 	{
 		if($schema==='')
-			$schema=self::DEFAULT_SCHEMA;
+			$schema=self::$defaultSchema;
 		$sql=<<<EOD
 SELECT table_name, table_schema FROM information_schema.tables
 WHERE table_schema=:schema AND table_type='BASE TABLE'
@@ -353,7 +353,7 @@ EOD;
 		$names=array();
 		foreach($rows as $row)
 		{
-			if($schema===self::DEFAULT_SCHEMA)
+			if($schema===self::$defaultSchema)
 				$names[]=$row['table_name'];
 			else
 				$names[]=$row['table_schema'].'.'.$row['table_name'];
