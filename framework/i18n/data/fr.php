@@ -1164,6 +1164,7 @@ return array (
     'sn' => 'Sénégal',
     'so' => 'Somalie',
     'sr' => 'Suriname',
+	'ss' => 'Soudan du Sud',
     'st' => 'Sao Tomé-et-Principe',
     'sv' => 'El Salvador',
     'sy' => 'Syrie',
