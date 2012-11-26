@@ -239,7 +239,7 @@ return array (
     'full' => 'EEEE d MMMM \'de\' y',
     'long' => 'd MMMM \'de\' y',
     'medium' => 'dd/MM/yyyy',
-    'short' => 'dd/MM/yy',
+    'short' => 'dd/MM/yyyy',
   ),
   'timeFormats' => 
   array (

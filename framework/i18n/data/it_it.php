@@ -222,7 +222,7 @@ return array (
     'full' => 'EEEE d MMMM y',
     'long' => 'dd MMMM y',
     'medium' => 'dd/MMM/y',
-    'short' => 'dd/MM/yy',
+    'short' => 'dd/MM/yyyy',
   ),
   'timeFormats' => 
   array (

@@ -179,7 +179,7 @@ return array (
     'full' => 'EEEE \'den\' d. MMMM y',
     'long' => 'd. MMM y',
     'medium' => 'dd/MM/yyyy',
-    'short' => 'dd/MM/yy',
+    'short' => 'dd/MM/yyyy',
   ),
   'timeFormats' => 
   array (

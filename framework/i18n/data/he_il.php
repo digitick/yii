@@ -204,7 +204,7 @@ return array (
     'full' => 'EEEE, d בMMMM y',
     'long' => 'd בMMMM y',
     'medium' => 'd בMMM yyyy',
-    'short' => 'dd/MM/yy',
+    'short' => 'dd/MM/yyyy',
   ),
   'timeFormats' => 
   array (

@@ -238,7 +238,7 @@ return array (
     'full' => 'y年M月d日EEEE',
     'long' => 'y年M月d日',
     'medium' => 'y年M月d日',
-    'short' => 'dd/MM/yy',
+    'short' => 'dd/MM/yyyy',
   ),
   'timeFormats' => 
   array (
