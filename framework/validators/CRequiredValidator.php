@@ -20,7 +20,6 @@
  * </ul>
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
- * @version $Id$
  * @package system.validators
  * @since 1.0
  */
@@ -103,7 +102,7 @@ if(value!=" . CJSON::encode($this->requiredValue) . ") {
 				'{attribute}'=>$object->getAttributeLabel($attribute),
 			));
 			return "
-if($.trim(value)=='') {
+if(jQuery.trim(value)=='') {
 	messages.push(".CJSON::encode($message).");
 }
 ";
