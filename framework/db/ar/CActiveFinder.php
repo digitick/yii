@@ -1364,7 +1364,7 @@ class CStatElement
 				throw new CDbException(Yii::t('yii','The relation "{relation}" in active record class "{class}" is specified with an invalid foreign key "{key}". There is no such column in the table "{table}".',
 					array('{class}'=>get_class($parent->model), '{relation}'=>$relation->name, '{key}'=>$fk, '{table}'=>$table->name)));
 
-			if(isset($table->foreignKeys[$fk]))
+			if(!$relation->forceFk && isset($table->foreignKeys[$fk]))
 			{
 				list($tableName,$pk)=$table->foreignKeys[$fk];
 				if($schema->compareTableNames($pkTable->rawName,$tableName))
@@ -1381,7 +1381,7 @@ class CStatElement
 					$map[$pkTable->primaryKey]=$fk;
 			}
 		}
-
+		
 		$records=$this->_parent->records;
 
 		$join=empty($relation->join)?'' : ' '.$relation->join;

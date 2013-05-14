@@ -2025,6 +2025,11 @@ class CStatRelation extends CBaseActiveRelation
 	 * receive a statistical query result. Defaults to 0.
 	 */
 	public $defaultValue=0;
+	/**
+	 * @var boolean Allow forcing the foreign key definition (does not compare
+	 * foreign keys). 
+	 */
+	public $forceFk = false;
 
 	/**
 	 * Merges this relation with a criteria specified dynamically.
